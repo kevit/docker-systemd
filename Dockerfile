@@ -12,6 +12,7 @@ RUN find /etc/systemd/system \
          -exec rm \{} \;
 
 RUN systemctl set-default multi-user.target
+RUN sed -i "s/^exit 101$/exit 0/" /usr/sbin/policy-rc.d
 
 COPY setup /sbin/
 
